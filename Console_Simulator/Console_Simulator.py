@@ -19,6 +19,12 @@ def multiplicate():
     e = int(c) + int(d)
     return e
 
+def division():
+    c = input("insert First Number")
+    d = input("insert Second Number")
+    e = int(c) + int(d)
+    return e
+
 def Help():
     for key in function_dict:
         print(key)
