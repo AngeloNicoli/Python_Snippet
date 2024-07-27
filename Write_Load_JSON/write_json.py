@@ -1,5 +1,8 @@
 import json
 
+def Insert_Data():
+    pass
+
 
 def save_data():
     class MyClass:
