@@ -7,6 +7,9 @@ import time
 
 Point = [None]
 
+print("This script simulate the motion of a particle in a 1D Dimension \n")
+
+
 def Simulate(Position,Speed,Acceleration,Sim_time):
     for step in range(int(Sim_time)):
         time_step = 1
@@ -16,8 +19,8 @@ def Simulate(Position,Speed,Acceleration,Sim_time):
         Speed = Speed + Acceleration * time_step
         print("Position of Point is " + str(Position) + " m. Speed is " + str(Speed) + " m/s. Acceleration is " + str(Acceleration) + " m/s².")
         time.sleep(0.5)
-    pass
-
+    return Position
+    
 
 while True:
     if Point == [None]:   # Create Point
@@ -30,9 +33,12 @@ while True:
     Acceleration = float(input ("insert value of acceleration (m²/s)"))
     Sim_time = float(input("insert Time of experiment (s)"))
 
-    Simulate(Point[0],Speed,Acceleration,Sim_time)
-     
-    
+    Point[0] = Simulate(Point[0],Speed,Acceleration,Sim_time)
+    print("New Position is " + str(Point[0]) + "m.")
+    if (input("Insert y to continue calculation. Insert any other key to exit")) == "y":
+        continue
+    else:
+        break
 
 
 
