@@ -1,0 +1,2 @@
+python Scopa.py
+PAUSE

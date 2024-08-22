@@ -15,13 +15,13 @@ class Figure_2D:
    self.Scale = Scale
    self.Rotation = Rotation
 
-
+# Object Istanciated.
 Scene_object = {}
+
 
 P1 = Figure_2D("Body_01")
 
 print(P1.Primitive)
-
 
 def Add_Asset():
   pass
@@ -35,18 +35,21 @@ def exit_program():
     sys.exit()
 
 def add_triangle(l=1):
+   global Scene_object
+   print("Triangle Created. " + str(l))
+   Scene_object["Figure" + str(len(Scene_object))] = Figure_2D("rectangle")
    pass
-   
+
 def add_rectangle(l1 =1,l2 = 1):
    global Scene_object
    print("Rectangle Created. " + str(l1) + str(l2))
-   Scene_object = {"rectangle": Figure_2D("Body_01"), "brand": "Ford"}
+   print(str(len(Scene_object)))
+   Scene_object["Figure" + str(len(Scene_object))] = Figure_2D("rectangle")
    pass
 
-   
+
 def object_instanced():
    print(Scene_object)
-
 
 # Store the functions in a dictionary
 operations = {

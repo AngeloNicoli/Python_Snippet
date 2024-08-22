@@ -20,6 +20,23 @@ def Simulate(Position,Speed,Acceleration,Sim_time):
         print("Position of Point is " + str(Position) + " m. Speed is " + str(Speed) + " m/s. Acceleration is " + str(Acceleration) + " m/s².")
         time.sleep(0.5)
     return Position
+  
+  
+def Validate_Input(input_value):  
+    input_value = input_value.replace('.', '')
+    if input_value.isnumeric() == True:
+        print("Value Inserted is numeric")
+        return True
+    else:
+        ("Please Insert a numeric Value")
+        return False
+
+
+def Ask_input(message):
+    input_value = input(message)
+    while Validate_Input(input_value) == False
+        input_value = input(message)
+    return input_value    
     
 
 while True:
@@ -39,6 +56,4 @@ while True:
         continue
     else:
         break
-
-
 

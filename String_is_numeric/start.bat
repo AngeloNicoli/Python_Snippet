@@ -1,0 +1,2 @@
+python string_is_numeric.py
+PAUSE
