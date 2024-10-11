@@ -5,3 +5,5 @@ a = a.replace('.', '')
 
 print(a)
 print("Value Inserted is numeric: " + str(a.isnumeric()))
+
+

@@ -1,0 +1,2 @@
+python Kinematics_Point_1D.py
+PAUSE

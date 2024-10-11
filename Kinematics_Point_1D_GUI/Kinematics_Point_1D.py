@@ -3,6 +3,7 @@
 # License: MIT              #
 #############################
 
+import Tkinter_Gui
 import time
 
 Point = [None]
@@ -34,26 +35,32 @@ def Validate_Input(input_value):
 
 def Ask_input(message):
     input_value = input(message)
-    while Validate_Input(input_value) == False
+    while Validate_Input(input_value) == False:
         input_value = input(message)
     return input_value    
     
 
-while True:
-    if Point == [None]:   # Create Point
-        print("Insert Position of Point.")
-        Point[0] = float(input("Plase Insert Coordinate of Point: "))
-        print("Point Created. Point is at : " + str(Point[0]) + " m.")
-    
-    print("Insert, Speed, Acceleration")
-    Speed = float(input("insert value of speed (m/s)"))
-    Acceleration = float(input ("insert value of acceleration (m²/s)"))
-    Sim_time = float(input("insert Time of experiment (s)"))
+def Start_Simulation(Gui_Mode):
+    while True:
+        if Point == [None]:   # Create Point
+            print("Insert Position of Point.")
+            Point[0] = float(input("Plase Insert Coordinate of Point: "))
+            print("Point Created. Point is at : " + str(Point[0]) + " m.")
+        
+        print("Insert, Speed, Acceleration")
+        Speed = float(input("insert value of speed (m/s)"))
+        Acceleration = float(input ("insert value of acceleration (m²/s)"))
+        Sim_time = float(input("insert Time of experiment (s)"))
 
-    Point[0] = Simulate(Point[0],Speed,Acceleration,Sim_time)
-    print("New Position is " + str(Point[0]) + "m.")
-    if (input("Insert y to continue calculation. Insert any other key to exit")) == "y":
-        continue
-    else:
-        break
+        Point[0] = Simulate(Point[0],Speed,Acceleration,Sim_time)
+        print("New Position is " + str(Point[0]) + "m.")
+        if (input("Insert y to continue calculation. Insert any other key to exit")) == "y":
+            continue
+        else:
+            break
 
+
+if __name__ == "__main__":
+    Start_Simulation(Gui_Mode = False)
+
+Tkinter_Gui.Create_Gui()
