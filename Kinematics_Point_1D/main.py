@@ -48,6 +48,7 @@ def get_position():
 def get_parameters():
     print("Insert, Speed, Acceleration")
     Speed = float(input("insert value of speed (m/s)"))
+    
     Acceleration = float(input ("insert value of acceleration (m²/s)"))
     Sim_time = float(input("insert Time of experiment (s)"))
     return Speed,Acceleration,Sim_time
