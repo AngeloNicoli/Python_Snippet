@@ -2,7 +2,6 @@
 
 import sys
 
-
 # This Class store all data about 2D Entity
 class Figure_2D:
  def __init__(self,name, Primitive ="0", Points = [0], Edge = [0], Faces = [0], Translation = [0,0], Scale = 1, Rotation = 0):
@@ -36,8 +35,10 @@ def exit_program():
 
 def add_triangle(l=1):
    global Scene_object
-   print("Triangle Created. " + str(l))
+   print("Triangle Created. Side L = " + str(l) + " mm")
    Scene_object["Figure" + str(len(Scene_object))] = Figure_2D("rectangle")
+   area = (int(l)*int(l))/2
+   print(area)
    pass
 
 def add_rectangle(l1 =1,l2 = 1):
@@ -66,7 +67,6 @@ Continue_Calculation = 0
 def execute_operation(operation_name, *args, **kwargs):
     operations[operation_name](*args, **kwargs)
 
-
 def check_function(selected_function):
     # Remove the parentheses
     a = selected_function.replace('(', ',').replace(')', '')
@@ -79,7 +79,6 @@ def check_function(selected_function):
     else:
         print("Function not found.")
     return parts
-
 
 while True:
     selected_function = input("Enter the name of the function you want to execute: ")
