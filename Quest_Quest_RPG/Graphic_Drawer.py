@@ -41,6 +41,17 @@ row = 20
 column = 20
 pixel_size = 30
 
+
+
+def createMatrix(row, col):
+    mat = []
+    for el in range(row):
+        mat.append([None]*20)
+    return mat
+
+Color_Grid = createMatrix(20, 20)
+print(Color_Grid)
+
 def draw_pixel(row,column,color,pixel_size,cordx,cordy):
       #print(row,column,color)
       #cordy = (row) * pixel_size
@@ -51,6 +62,14 @@ def draw_pixel(row,column,color,pixel_size,cordx,cordy):
       cordy = math.floor(cordy/30) * 30
       print(cordx)
       print(cordy)
+      
+      Color_Grid[math.floor(cordy/30)][math.floor(cordx/30)] = color
+      
+      print(Color_Grid)
+      print("\n")
+      print(Color_Grid[1])
+      print("\n")
+      print(Color_Grid[2])
       #print(str(row) + " " + str(column))
       if color == '0':
         color = "white"
