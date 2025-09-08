@@ -34,8 +34,8 @@ def render_image(image_matrix):
     return render_matrix
     
 
-Matrix_Rendered = render_image(2)
-print(Matrix_Rendered)
+#Matrix_Rendered = render_image(2)
+#print(Matrix_Rendered)
 
 
 def terrain_generator():

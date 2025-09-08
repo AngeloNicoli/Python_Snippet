@@ -28,7 +28,6 @@ color_back = [Back.BLACK,Back.RED, Back.GREEN,Back.YELLOW,Back.BLUE,Back.MAGENTA
 
 init()
 
-
 class Player:
   def __init__(self, name = "Player 1", age = "30"):
     self.name = name
@@ -81,19 +80,19 @@ def player_turn():
     os.system('cls' if os.name == 'nt' else 'clear')
     print(Fore.MAGENTA + "Scegli la tua prossima azione:" + Style.RESET_ALL + "\n 1 - Controlla la mappa.  \n 2- Controlla inventario \n 3- Controlla statistiche\n 4 - Controlla Equipaggiamento\n 5 - Vai verso città più vicina \n 6 - Vai verso dungeon più vicino\n 7 - Esci dal gioco")
     player_choice = input()
-    if player_choice == "1":  #Map show
+    if player_choice == "1":  # Map show
         map_show()
-    if player_choice == "2":  #Show inventory
+    if player_choice == "2":  # Show inventory
         inventory_show()
-    if player_choice == "3":  #Show Status
+    if player_choice == "3":  # Show Status
         status_show()
-    if player_choice == "4":  #Show Equipment
+    if player_choice == "4":  # Show Equipment
         equipment_show()   
-    if player_choice == "5":  #Move Settlement
+    if player_choice == "5":  # Move Settlement
         move_settlement()
-    if player_choice == "6":  #Move Dungeon
+    if player_choice == "6":  # Move Dungeon
         move_dungeon()   
-    if player_choice == "7":
+    if player_choice == "7":  # Exit Game
         sys.exit()   
    
     input("\n Inserisci un tasto qualsiasi per continuare")
