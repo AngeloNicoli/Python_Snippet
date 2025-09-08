@@ -22,16 +22,16 @@ canvas = Canvas(width=Canvas_width, height= Canvas_height, bg='gray')
 canvas.grid(row=0, column=0 , columnspan = 8, padx=5)
 
 
-Background_color = ["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"]
+Background_color = [["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"],["Gray", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"]] 
 Color_Label =[None]*8
 
 current_color = ["White"]
 
 for i in range(0,2):
-    for j in range(0,8):
-        Color_Label[j] = Label(root,text="", bg= Background_color[j], borderwidth=1,relief="solid",padx=20)
+    for j in range(0,7):
+        Color_Label[j] = Label(root,text="", bg= Background_color[i][j], borderwidth=1,relief="solid",padx=20)
         Color_Label[j].grid(row= i+1, column=j,pady=2)   
-        Color_Label[j].bind("<Button-1>", lambda e, c=Background_color[j]:printatore(c))
+        Color_Label[j].bind("<Button-1>", lambda e, c=Background_color[i][j]:printatore(c))
         print(Color_Label[j].cget("bg"))
 
 
