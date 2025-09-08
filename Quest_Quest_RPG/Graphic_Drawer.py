@@ -9,7 +9,8 @@ window_height = 700
 root = Tk()
 root.geometry(str(window_width) + "x" + str(window_height))
 root.title("Map Drawer")
-# root.configure(bg="white")
+
+#root.configure(bg="white")
 
 # Size of Canvas
 Canvas_width = 600
@@ -20,20 +21,26 @@ Center_Canvas = [Canvas_width/2,Canvas_height/2]
 canvas = Canvas(width=Canvas_width, height= Canvas_height, bg='gray')  
 canvas.grid(row=0, column=0 , columnspan = 8, padx=5)
 
-Background_color = ["Green", "Red", "Blue", "Red", "Green", "Red", "Green", "Red"]
 
+Background_color = ["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"]
+Color_Label =[None]*8
+
+current_color = ["White"]
 
 for i in range(0,2):
-    for j in range(0,7):
-        Color_01 = Label(root,text="", bg= Background_color[j], borderwidth=1,relief="solid",padx=20)
-        Color_01.grid(row= i+1, column=j,pady=2)   
+    for j in range(0,8):
+        Color_Label[j] = Label(root,text="", bg= Background_color[j], borderwidth=1,relief="solid",padx=20)
+        Color_Label[j].grid(row= i+1, column=j,pady=2)   
+        Color_Label[j].bind("<Button-1>", lambda e, c=Background_color[j]:printatore(c))
+        print(Color_Label[j].cget("bg"))
 
 
-def printatore():
-    print("3")
+def printatore(color_print):
+    print(color_print)
+    current_color[0] = color_print
+    return current_color
 
-Color_01.bind("<Button-1>", lambda e:printatore())
-   
+
 #Red_Color = Label(root,text="", bg="#c50f1f", borderwidth=1,relief="solid")
 #Red_Color.grid(row=1, column=1,sticky=W+E, padx=5, ipadx=10)
 
@@ -41,16 +48,19 @@ row = 20
 column = 20
 pixel_size = 30
 
-
-
 def createMatrix(row, col):
     mat = []
     for el in range(row):
-        mat.append([None]*20)
+        mat.append([3]*20)
     return mat
+
 
 Color_Grid = createMatrix(20, 20)
 print(Color_Grid)
+
+def Save_Matrix():
+    print("save")
+
 
 def draw_pixel(row,column,color,pixel_size,cordx,cordy):
       #print(row,column,color)
@@ -76,17 +86,20 @@ def draw_pixel(row,column,color,pixel_size,cordx,cordy):
       canvas.create_rectangle(cordx, cordy, cordx + pixel_size, cordy + pixel_size , width = 0, fill = color , tags="pixel")
       #canvas.create_rectangle(0, 0, 30,30, width = 0, fill = color , tags="pixel")
       #pixel_color[row][column] = color
-
+      
+      open('demofile.txt', 'w').close()
+      for el in range(len(Color_Grid)):
+        with open("demofile.txt", "a") as f:
+            f.write(", ".join(str(x) for x in Color_Grid[el])+ "\n")
+            #f.write(str(Color_Grid[el])+"\n")  
 
 def mostra_coordinate(event):
     # event.x e event.y contengono le coordinate relative al Canvas
-    draw_pixel(30,30,"BLUE",30,event.x,event.y)   #row,column, 
+    draw_pixel(30,30,current_color[0],30,event.x,event.y)   #row,column, 
     print(f"Click a: x={event.x}, y={event.y}")
     
     
 # Collega il click del mouse (tasto sinistro) alla funzione
 canvas.bind("<Button-1>", mostra_coordinate)
-
-
 
 root.mainloop()
