@@ -9,6 +9,7 @@ window_height = 700
 root = Tk()
 root.geometry(str(window_width) + "x" + str(window_height))
 root.title("Map Drawer")
+root.configure(bg='#A2AF9B')
 
 #root.configure(bg="white")
 
@@ -17,23 +18,29 @@ Canvas_width = 600
 Canvas_height = 600
 Center_Canvas = [Canvas_width/2,Canvas_height/2]
 
+
 # Create Canvas
 canvas = Canvas(width=Canvas_width, height= Canvas_height, bg='gray')  
 canvas.grid(row=0, column=0 , columnspan = 8, padx=5)
-
+canvas.configure(bg='black')
 
 Background_color = [["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"],["Gray", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"]] 
+Color_Code = {"Black": 0, "Red":1,"Green":2,"Yellow": 3,"Blue": 4,"Magenta": 5,"Cyan": 6,"White": 7}
 Color_Label =[None]*8
 
-current_color = ["White"]
+current_color = ["Black"]
 
+#Create Label with Color
 for i in range(0,2):
     for j in range(0,7):
         Color_Label[j] = Label(root,text="", bg= Background_color[i][j], borderwidth=1,relief="solid",padx=20)
         Color_Label[j].grid(row= i+1, column=j,pady=2)   
         Color_Label[j].bind("<Button-1>", lambda e, c=Background_color[i][j]:printatore(c))
         print(Color_Label[j].cget("bg"))
+        
 
+Button1 = Button(text = "3")
+Button1.grid(row= 4, column=0,pady=2)   
 
 def printatore(color_print):
     print(color_print)
@@ -51,7 +58,7 @@ pixel_size = 30
 def createMatrix(row, col):
     mat = []
     for el in range(row):
-        mat.append([3]*20)
+        mat.append([0]*20)
     return mat
 
 
@@ -62,7 +69,7 @@ def Save_Matrix():
     print("save")
 
 
-def draw_pixel(row,column,color,pixel_size,cordx,cordy):
+def draw_pixel(row,column,color,pixel_size,cordx,cordy,color_index):
       #print(row,column,color)
       #cordy = (row) * pixel_size
       #cordx = (column) * pixel_size
@@ -72,8 +79,8 @@ def draw_pixel(row,column,color,pixel_size,cordx,cordy):
       cordy = math.floor(cordy/30) * 30
       print(cordx)
       print(cordy)
-      
-      Color_Grid[math.floor(cordy/30)][math.floor(cordx/30)] = color
+      print("color index is" + str(color_index))
+      Color_Grid[math.floor(cordy/30)][math.floor(cordx/30)] = color_index
       
       print(Color_Grid)
       print("\n")
@@ -95,7 +102,7 @@ def draw_pixel(row,column,color,pixel_size,cordx,cordy):
 
 def mostra_coordinate(event):
     # event.x e event.y contengono le coordinate relative al Canvas
-    draw_pixel(30,30,current_color[0],30,event.x,event.y)   #row,column, 
+    draw_pixel(30,30,current_color[0],30,event.x,event.y, Color_Code[str(current_color[0])]) #row,column, 
     print(f"Click a: x={event.x}, y={event.y}")
     
     

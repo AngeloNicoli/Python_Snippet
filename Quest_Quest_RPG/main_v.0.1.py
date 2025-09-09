@@ -15,6 +15,8 @@ import os # clear the console screen
 import sys 
 import random
 import terrain
+import Table_Formatter
+
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -35,8 +37,14 @@ class Player:
     self.Level = 1
     self.health = 100
     self.attack = 10 
+    self.defence = 10
+    self.exp = 0
+    self.speed = 0
+    self.bio = "E' nato"
+    self.stats = [self.Level,self.attack,self.defence,self.exp,self.speed]
     self.equipment = {}
     self.inventory = {}
+    
     
 #inventory = {"Coin":"20 Monete", "Mantello":"Mantello di pelle", "Oggetto": "Otre Pieno d'acqua"}    
 #print(Player_1.health) 
@@ -164,12 +172,17 @@ def move_dungeon():
     print(Fore.RED + "Hai scelto. Muovi verso dungeon\n Sono pronto alla battaglia. Verso la prossima avventura!!" + Style.RESET_ALL)
     print("Life = 100 Hp") 
 
+
+
  
 # Initialize Game
 start_quest()
 
+
 # Start Player Turn
 player_turn()
+
+
 
 
 

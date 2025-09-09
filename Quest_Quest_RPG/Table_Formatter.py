@@ -5,17 +5,23 @@ dati = [
     ["Marco", 22, "Torino"]
 ]
 
-# Larghezze massime delle colonne
-larghezze = [max(len(str(riga[i])) for riga in dati) for i in range(len(dati[0]))]
+def table_formatter(Table_input):
+    # Larghezze massime delle colonne
+    larghezze = [max(len(str(riga[i])) for riga in Table_input) for i in range(len(Table_input[0]))]
 
-# Funzione per stampare una riga
-def stampa_riga(riga):
-    print("| " + " | ".join(str(val).ljust(larghezze[i]) for i, val in enumerate(riga)) + " |")
+    # Funzione per stampare una riga
+    def stampa_riga(riga):
+        print("| " + " | ".join(str(val).ljust(larghezze[i]) for i, val in enumerate(riga)) + " |")
 
-# Stampa la tabella
-print("-" * (sum(larghezze) + len(larghezze)*3 + 1))
-for i, riga in enumerate(dati):
-    stampa_riga(riga)
-    if i == 0:
-        print("-" * (sum(larghezze) + len(larghezze)*3 + 1))
-print("-" * (sum(larghezze) + len(larghezze)*3 + 1))
+    # Stampa la tabella
+    print("-" * (sum(larghezze) + len(larghezze)*3 + 1))
+    for i, riga in enumerate(Table_input):
+        stampa_riga(riga)
+        if i == 0:
+            print("-" * (sum(larghezze) + len(larghezze)*3 + 1))
+    print("-" * (sum(larghezze) + len(larghezze)*3 + 1))
+
+
+if __name__ == "__main__":
+    #print("Table")
+    table_formatter(dati)

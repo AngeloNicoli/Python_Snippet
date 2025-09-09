@@ -1,13 +1,13 @@
 #import os
 
 # Load matrix from txt file
-def render_image(image_matrix):
+def render_image(image_matrix,image_name):
     
     render_matrix = []
     for el in range(20):
         render_matrix.append([None]*20)
 
-    with open("demofile.txt", "r") as file:
+    with open(image_name + ".txt", "r") as file:
         i = 0
         for line in file:
             line = line.strip()
@@ -34,7 +34,7 @@ def render_image(image_matrix):
     return render_matrix
     
 
-#Matrix_Rendered = render_image(2)
+#Matrix_Rendered = render_image(2,"demofile")
 #print(Matrix_Rendered)
 
 
@@ -89,7 +89,7 @@ def terrain_generator():
     terrain_map.append(terrain_row_19)
     terrain_map.append(terrain_row_20)
     
-    #terrain_map = render_image(2)
+    #terrain_map = render_image(2,"demofile")
     return terrain_map
     
     
