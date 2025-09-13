@@ -108,6 +108,24 @@ def player_turn():
     pass
 
 
+def render_image(image_map):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    for i in range(0,20):
+        for j in range (0,20):
+            pixel_color = color_fore[image_map[i][j]]
+            #pixel_color = color_fore[random.randint(1,7)]
+            print(pixel_color+ "█"+ Style.RESET_ALL, end="")
+            print(pixel_color+ "█"+ Style.RESET_ALL, end="")
+
+        #pixel_color = color_fore[random.randint(1,7)]
+        pixel_color = color_fore[image_map[i][j]]
+        print(pixel_color +"█"+ Style.RESET_ALL, end="")
+        print(pixel_color +"█"+ Style.RESET_ALL)
+    print(Fore.RED + " █ Posizione del Giocatore" + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.BLACK + " █ Insediamento piu' vicino: Torre Assolata" + Style.RESET_ALL)
+
+
+
 def map_show():
     os.system('cls' if os.name == 'nt' else 'clear')
     for i in range(0,20):
@@ -174,7 +192,6 @@ def move_dungeon():
 
 
 
- 
 # Initialize Game
 start_quest()
 

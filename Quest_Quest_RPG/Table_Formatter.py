@@ -25,3 +25,4 @@ def table_formatter(Table_input):
 if __name__ == "__main__":
     #print("Table")
     table_formatter(dati)
+    input("Premi un tasto per continuare")

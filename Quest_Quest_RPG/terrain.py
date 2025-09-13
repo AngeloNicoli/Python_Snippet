@@ -1,7 +1,7 @@
 #import os
 
 # Load matrix from txt file
-def render_image(image_matrix,image_name):
+def render_image(image_name):
     
     render_matrix = []
     for el in range(20):
@@ -34,9 +34,12 @@ def render_image(image_matrix,image_name):
     return render_matrix
     
 
-#Matrix_Rendered = render_image(2,"demofile")
+#def load_image(image_name):
+#    Matrix_Rendered = render_image("demofile")
+    
+    
+#Matrix_Rendered = render_image("demofile")
 #print(Matrix_Rendered)
-
 
 def terrain_generator():
     terrain_map = []
