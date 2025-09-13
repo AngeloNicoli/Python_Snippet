@@ -44,7 +44,7 @@ def render_image(image_name):
 def terrain_generator():
     terrain_map = []
     
-    terrain_row_01 = [2,2,2,2,2,2,2,2,2,2,6,6,4,4,4,4,4,6,2,2,2]
+    terrain_map.append([2,2,2,2,2,2,2,2,2,2,6,6,4,4,4,4,4,6,2,2,2])
     terrain_row_02 = [2,2,2,2,2,2,2,2,2,2,6,6,4,4,4,4,4,4,6,2,2]
     terrain_row_03 = [2,2,2,2,2,2,2,2,2,2,6,6,4,4,4,4,4,6,2,2,2]
     terrain_row_04 = [2,2,10,10,10,2,2,2,2,2,2,6,4,4,4,4,6,2,2,2,2]
@@ -68,7 +68,6 @@ def terrain_generator():
     terrain_row_19 = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
     terrain_row_20 = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
     
-    terrain_map.append(terrain_row_01)
     terrain_map.append(terrain_row_02)
     terrain_map.append(terrain_row_03)
     terrain_map.append(terrain_row_04)

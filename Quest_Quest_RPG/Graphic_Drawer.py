@@ -1,6 +1,7 @@
 from tkinter import *
 import math
 from tkinter import simpledialog
+import Export_png
 
 # Size of Main Window
 window_width = 610
@@ -39,8 +40,7 @@ for i in range(0,2):
         Color_Label[j].bind("<Button-1>", lambda e, c=Background_color[i][j]:printatore(c))
         #print(Color_Label[j].cget("bg"))
  
-
-
+ 
 def Scrivi_Mappa():
     #print(Color_Grid)
     name_file = simpledialog.askstring("Input", "What's your name?")
@@ -49,8 +49,19 @@ def Scrivi_Mappa():
         with open(str(name_file) + '.txt', 'a') as f:
             f.write(", ".join(str(x) for x in Color_Grid[el])+ "\n")
 
+
+def Esporta_png():
+    name_file = simpledialog.askstring("Input", "What's your name?")
+    Export_png.esporta()
+
+
 Button1 = Button(text = "Scrivi_Mappa", command = Scrivi_Mappa)
 Button1.grid(row= 4, column=0,columnspan = 10,pady=2, sticky = W+E)   
+
+
+Button2 = Button(text = "Esporta png", command = Esporta_png)
+Button2.grid(row= 5, column=0,columnspan = 10,pady=2, sticky = W+E)   
+
 
 def printatore(color_print):
     #print(color_print)
