@@ -26,8 +26,8 @@ canvas = Canvas(width=Canvas_width, height= Canvas_height, bg='gray')
 canvas.grid(row=0, column=0 , columnspan = 8, padx=5)
 canvas.configure(bg='black')
 
-Background_color = [["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"],["Gray", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"]] 
-Color_Code = {"Black": 0, "Red":1,"Green":2,"Yellow": 3,"Blue": 4,"Magenta": 5,"Cyan": 6,"White": 7,"Gray": 8}
+Background_color = [["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"],["Gray", "Indian red", "limegreen", "khaki1", "skyblue2", "purple", "darkslategray3", "azure1"]] 
+Color_Code = {"Black": 0, "Red":1,"Green":2,"Yellow": 3,"Blue": 4,"Magenta": 5,"Cyan": 6,"White": 7,"Gray": 8, "Indian red": 9, "limegreen": 10,"khaki1": 11,"skyblue2": 12, "purple": 13, "darkslategray3": 14,"azure1": 15 }
 Color_Label =[None]*8
 
 current_color = ["Black"]

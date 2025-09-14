@@ -14,9 +14,7 @@ from colorama import init, Fore, Back, Style
 import os # clear the console screen
 import sys 
 import random
-import terrain
-import Table_Formatter
-
+import image_renderer
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -48,7 +46,7 @@ def render_image(image_map):
     
 name_file = input("inserisci nome del file")
 
-image_map = terrain.render_image(str(name_file))
+image_map = image_renderer.render_image(str(name_file))
 render_image(image_map)
 
 input("Premi un tasto per continuare")
