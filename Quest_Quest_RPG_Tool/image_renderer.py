@@ -1,4 +1,4 @@
-#import os
+import os
 
 # Load matrix from txt file
 def render_image(image_name):
@@ -7,7 +7,7 @@ def render_image(image_name):
     for el in range(20):
         render_matrix.append([None]*20)
 
-    with open(image_name + ".txt", "r") as file:
+    with open("image\\" + image_name + ".txt", "r") as file:
         i = 0
         for line in file:
             line = line.strip()

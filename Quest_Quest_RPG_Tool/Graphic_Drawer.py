@@ -5,7 +5,7 @@ import Export_png
 
 # Size of Main Window
 window_width = 610
-window_height = 700
+window_height = 750
 
 # Create Main Window
 root = Tk()
@@ -20,6 +20,9 @@ Canvas_width = 600
 Canvas_height = 600
 Center_Canvas = [Canvas_width/2,Canvas_height/2]
 
+row = 20
+column = 20
+pixel_size = 30
 
 # Create Canvas
 canvas = Canvas(width=Canvas_width, height= Canvas_height, bg='gray')  
@@ -43,7 +46,7 @@ for i in range(0,2):
  
 def Scrivi_Mappa():
     #print(Color_Grid)
-    name_file = simpledialog.askstring("Input", "What's your name?")
+    name_file = simpledialog.askstring("Input", "Esporta il tuo file per 'Quest Quest'")
     open(str(name_file) + '.txt', 'w').close()
     for el in range(len(Color_Grid)):
         with open(str(name_file) + '.txt', 'a') as f:
@@ -51,8 +54,8 @@ def Scrivi_Mappa():
 
 
 def Esporta_png():
-    name_file = simpledialog.askstring("Input", "What's your name?")
-    Export_png.esporta()
+    name_file = simpledialog.askstring("Input", "Esporta il tuo file in formato png'")
+    Export_png.esporta(Canvas_width,Canvas_height,pixel_size)
 
 
 Button1 = Button(text = "Scrivi_Mappa", command = Scrivi_Mappa)
@@ -72,9 +75,6 @@ def printatore(color_print):
 #Red_Color = Label(root,text="", bg="#c50f1f", borderwidth=1,relief="solid")
 #Red_Color.grid(row=1, column=1,sticky=W+E, padx=5, ipadx=10)
 
-row = 20
-column = 20
-pixel_size = 30
 
 def createMatrix(row, col):
     mat = []
@@ -129,5 +129,6 @@ def mostra_coordinate(event):
     
 # Collega il click del mouse (tasto sinistro) alla funzione
 canvas.bind("<Button-1>", mostra_coordinate)
+canvas.bind("<B1-Motion>", mostra_coordinate)
 
 root.mainloop()

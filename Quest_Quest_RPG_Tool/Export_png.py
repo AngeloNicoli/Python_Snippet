@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw
 import random
 
-mylist=["white","red","blue"]
+mylist=["white","red","blue","green"]
 
 def esporta(canvas_x,canvas_y,pixel_size):
     image = Image.new("RGB", (canvas_x, canvas_y), "white")
