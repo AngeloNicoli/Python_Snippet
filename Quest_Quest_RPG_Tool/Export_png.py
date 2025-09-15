@@ -17,7 +17,12 @@ def esporta(canvas_x,canvas_y,pixel_size):
     image.save("rectangles.png")
 
 
-esporta(600,600,20)
+if __name__ == "__main__":
+    esporta(600,600,20)
+    input("Premi un tasto per continuare")
+
+
+
 
 '''
 # Create a blank white image

@@ -2,10 +2,11 @@ from tkinter import *
 import math
 from tkinter import simpledialog
 import Export_png
+from tkinter import ttk
 
 # Size of Main Window
 window_width = 610
-window_height = 750
+window_height = 730
 
 # Create Main Window
 root = Tk()
@@ -58,12 +59,14 @@ def Esporta_png():
     Export_png.esporta(Canvas_width,Canvas_height,pixel_size)
 
 
-Button1 = Button(text = "Scrivi_Mappa", command = Scrivi_Mappa)
-Button1.grid(row= 4, column=0,columnspan = 10,pady=2, sticky = W+E)   
+#Button1 = ttk.Button(text = "Scrivi_Mappa", command = Scrivi_Mappa)
+#Button1.grid(row= 4, column=0,columnspan = 10,pady=2, sticky = W+E)   
 
+Button1 = Button(text = "Scrivi_Mappa", bg="#D9E9CF",fg ="#556B2F",command = Scrivi_Mappa)
+Button1.grid(row= 4, column=0,columnspan = 10,pady=2, padx = 20,sticky = W+E)   
 
-Button2 = Button(text = "Esporta png", command = Esporta_png)
-Button2.grid(row= 5, column=0,columnspan = 10,pady=2, sticky = W+E)   
+Button2 = Button(text = "Esporta png", bg="#D9E9CF",fg ="#556B2F",command = Esporta_png)
+Button2.grid(row= 5, column=0,columnspan = 10,pady=2, padx = 20,sticky = W+E)   
 
 
 def printatore(color_print):
