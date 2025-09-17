@@ -3,7 +3,7 @@ import random
 
 mylist=["white","red","blue","green"]
 
-def esporta(canvas_x,canvas_y,pixel_size):
+def esporta(canvas_x,canvas_y,pixel_size,Color_Grid):
     image = Image.new("RGB", (canvas_x, canvas_y), "white")
     n_row = canvas_x/pixel_size
     n_column = canvas_y/pixel_size
@@ -12,16 +12,17 @@ def esporta(canvas_x,canvas_y,pixel_size):
             col = random.choice(mylist)
             print(type(col))
             print(col)
-            ImageDraw.Draw(image).rectangle((el* pixel_size, ely* pixel_size, (el* pixel_size)+pixel_size, (ely* pixel_size)+pixel_size), fill=col)
+            #ImageDraw.Draw(image).rectangle((el* pixel_size, ely* pixel_size, (el* pixel_size)+pixel_size, (ely* pixel_size)+pixel_size), fill=col)
+            ImageDraw.Draw(image).rectangle((el* pixel_size, ely* pixel_size, (el* pixel_size)+pixel_size, (ely* pixel_size)+pixel_size), fill=Color_Grid[el][ely])
             print("C")
+
+    
     image.save("rectangles.png")
 
 
 if __name__ == "__main__":
     esporta(600,600,20)
     input("Premi un tasto per continuare")
-
-
 
 
 '''
