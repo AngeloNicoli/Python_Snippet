@@ -1,8 +1,8 @@
-"Gray"
-"Indian red"
-"limegreen"
-"khaki1"
-"skyblue2"
-"purple"
-"darkslategray3"
-"azure1"
+Gray
+Indian red
+limegreen
+khaki1
+skyblue2
+purple
+darkslategray3
+azure1

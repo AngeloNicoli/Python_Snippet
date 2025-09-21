@@ -5,51 +5,69 @@ import Export_png
 from tkinter import ttk
 import os
 
+try:
+    # For Windows: forza DPI awareness
+    from ctypes import windll
+    windll.shcore.SetProcessDpiAwareness(2)  # 1 = System DPI, 2 = Per-monitor DPI
+    print("X")
+except:
+    pass
+    
+    
 # Size of Main Window
-window_width = 300
-window_height = 100
+window_width = 350
+window_height = 120
 
 
-# Create Main Window
+## Create Main Window ##
 root = Tk()
 root.geometry(str(window_width) + "x" + str(window_height))
+
 root.title("Map Drawer")
+
 root.configure(bg='#A2AF9B')
 
 valore_iniziale = StringVar()
-valore_iniziale.set("600")
+valore_iniziale2 = StringVar()
+valore_iniziale2.set("20")
 
-Entry_1 = Entry(root,text = valore_iniziale)
+Entry_1 = Entry(root,text = valore_iniziale2)
 Entry_1.grid(row= 0, column = 1,padx = 20)
 
 Label_1 = Label(root,text = "Grandezza Quadrato (px)")
 Label_1.grid(row= 0, column = 0)
 
 
-Entry_1 = Entry(root,text = valore_iniziale)
-Entry_1.grid(row= 1, column = 1,padx = 20)
+valore_iniziale.set("600")
 
-Label_1 = Label(root,text = "Larghezza Tela px")
-Label_1.grid(row= 1, column = 0)
+Entry_2 = Entry(root,text = valore_iniziale)
+Entry_2.grid(row= 1, column = 1,padx = 20)
 
+Label_2 = Label(root,text = "Larghezza Tela px")
+Label_2.grid(row= 1, column = 0)
 
-Entry_1 = Entry(root,text = "Lunghezza Tela (px)")
-Entry_1.grid(row= 2, column = 1,padx = 20)
+Entry_3 = Entry(root,text = valore_iniziale)
+Entry_3.grid(row= 2, column = 1,padx = 20)
 
-Label_1 = Label(root,text = "Lunghezza Tela px")
-Label_1.grid(row= 2, column = 0)
+Label_3 = Label(root,text = "Lunghezza Tela px")
+Label_3.grid(row= 2, column = 0)
 
 
 def save_input():
+    q = Entry_1.get()
+    print(type(q))
     print("£")
     root.destroy()
-
+    
 
 Button1 = Button(text = "Crea nuovo canvas", bg="#D9E9CF",fg ="#556B2F",command = save_input)
 Button1.grid(row= 3, column=0,columnspan = 10,pady=2, padx = 20,sticky = W+E)   
 
 
+
 root.mainloop()
+
+
 
 
 window_width = 610
@@ -71,7 +89,7 @@ Center_Canvas = [Canvas_width/2,Canvas_height/2]
 
 # Define number of row, column and pixel_size
 
-pixel_size = 5
+pixel_size = 20
 
 row = int(Canvas_height/pixel_size)
 column = int(Canvas_width/pixel_size)
@@ -106,7 +124,8 @@ def render_image(image_name):
         i = 0
         for line in file:
             line = line.strip()
-            render_matrix.append("#" + line)
+            #render_matrix.append("#" + line)
+            render_matrix.append(line)
             print(render_matrix[i])
             i +=1
 
@@ -118,6 +137,10 @@ Background_color[0] = render_image("win_palette_1")
 Background_color[1] = render_image("win_palette_2")  
 print(Background_color)
 
+Background_color[0] = render_image("Quest_Quest_palette_1")  
+Background_color[1] = render_image("Quest_Quest_palette_2")  
+
+
 
 #Background_color = [["Black", "Red", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"],["Gray", "Indian red", "limegreen", "khaki1", "skyblue2", "purple", "darkslategray3", "azure1"]]
 #Background_color = [["Black", "#6723ab", "Green", "Yellow", "Blue", "Magenta", "Cyan", "White"],["Gray", "Indian red", "limegreen", "khaki1", "skyblue2", "purple", "darkslategray3", "#06ffff"]]  
@@ -127,13 +150,14 @@ Color_Code = {"Black": 0, "Red":1,"Green":2,"Yellow": 3,"Blue": 4,"Magenta": 5,"
 Color_Code_hex_color ={}
 Color_Label =[None]*8
 
-current_color = [Background_color[0][0]]
-print("Colore Selezionato" +str(current_color[0]))
 
 def color_to_hex(color_name):
     r, g, b = root.winfo_rgb(color_name)
     return "#{:02x}{:02x}{:02x}".format(r//256, g//256, b//256)
 
+
+current_color = [color_to_hex(Background_color[0][0])]
+print("Colore Selezionato" +str(current_color[0]))
 
 for i in range(0,2):
     for j in range(0,8):
@@ -148,7 +172,6 @@ for i in range(0,2):
     
  
 print(Color_Code_hex_color) 
- 
 print(Background_color)
 print(Background_hex_color)
 
@@ -201,7 +224,6 @@ def printatore(color_print):
 
 #Red_Color = Label(root,text="", bg="#c50f1f", borderwidth=1,relief="solid")
 #Red_Color.grid(row=1, column=1,sticky=W+E, padx=5, ipadx=10)
-
 
 
 def Save_Matrix():
