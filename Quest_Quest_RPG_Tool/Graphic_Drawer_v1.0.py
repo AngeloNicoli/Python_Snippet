@@ -67,9 +67,6 @@ Button1.grid(row= 3, column=0,columnspan = 10,pady=2, padx = 20,sticky = W+E)
 
 root.mainloop()
 
-
-
-
 window_width = 610
 window_height = 730
 
@@ -89,7 +86,7 @@ Center_Canvas = [Canvas_width/2,Canvas_height/2]
 
 # Define number of row, column and pixel_size
 
-pixel_size = 20
+pixel_size = 30
 
 row = int(Canvas_height/pixel_size)
 column = int(Canvas_width/pixel_size)
@@ -203,7 +200,7 @@ def Esporta_png():
     print(Color_Map)
 
     name_file = simpledialog.askstring("Input", "Esporta il tuo file in formato png'")
-    Export_png.esporta(Canvas_width,Canvas_height,pixel_size,Color_Map)
+    Export_png.esporta(Canvas_width,Canvas_height,pixel_size,Color_Map,name_file)
 
 
 #Button1 = ttk.Button(text = "Scrivi_Mappa", command = Scrivi_Mappa)

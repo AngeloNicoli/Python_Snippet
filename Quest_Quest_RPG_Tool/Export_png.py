@@ -3,7 +3,7 @@ import random
 
 mylist=["white","red","blue","green"]
 
-def esporta(canvas_x,canvas_y,pixel_size,Color_Grid):
+def esporta(canvas_x,canvas_y,pixel_size,Color_Grid,Name_File):
     image = Image.new("RGB", (canvas_x, canvas_y), "white")
     n_row = canvas_x/pixel_size
     n_column = canvas_y/pixel_size
@@ -17,7 +17,7 @@ def esporta(canvas_x,canvas_y,pixel_size,Color_Grid):
             print("C")
 
     
-    image.save("rectangles.png")
+    image.save(Name_File + ".png")
 
 
 if __name__ == "__main__":

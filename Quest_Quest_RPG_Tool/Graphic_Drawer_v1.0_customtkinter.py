@@ -60,8 +60,8 @@ root.mainloop()
 # SECONDA FINESTRA (CANVAS)
 # ======================
 
-window_width2 = 600
-window_height2 = 620
+window_width2 = 800
+window_height2 = 800
 
 root = ctk.CTk()
 root.geometry(f"{window_width2}x{window_height2}")
