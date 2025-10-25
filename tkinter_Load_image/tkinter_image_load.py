@@ -11,6 +11,11 @@ canvas.pack()
 triangle_image = tk.PhotoImage(file="images/Triangle.png")
 triangle_resized = triangle_image.subsample(4, 4)
 
+print(tk.PhotoImage)
+print(dir(tk.PhotoImage))
+print(triangle_resized.height())
+print(triangle_resized.width())
+
 for i in range(4):
     for j in range(4):
         canvas.create_image((i*100)+50, (j*100)+50, image=triangle_resized)
