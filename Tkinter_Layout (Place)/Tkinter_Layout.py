@@ -30,7 +30,7 @@ def prova():
 master.after(2000,prova)
 
 b4 = Button(master, text = "GF")
-b4.place(x = 90,rely = 0.4, anchor = CENTER)
+b4.place(x = 90,rely = 0.4, width=120, height=40, anchor = CENTER)
 
 # infinite loop which is required to
 # run tkinter program infinitely
